@@ -1,0 +1,24 @@
+{% extends "learning_logs/base.html" %}
+
+{% block header %}
+  <h1> Topics </h1>
+{% endblock header %}
+
+{% block content %}
+
+<P> These are the Topics in your Study box </P>
+<ul>
+    {% for topic in topics %}
+      <li>
+          <h3>
+              <a href="{% url 'learning_logs:topic' topic.id %}"> {{ topic }} </a>
+          </h3>
+      </li>
+    {% empty %}
+      <li> No Topics have Been Added Yet. </li>
+    {% endfor %}
+</ul>
+
+<h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic: </a></h3>
+
+{% endblock content%}
