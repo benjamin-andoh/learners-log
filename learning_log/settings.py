@@ -24,10 +24,11 @@ SECRET_KEY = 'ad^1r4hc%a7f!nbr=v0)sn$vsvqcab!_v)wn2%jym22u!1qkse'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # allow only Heroku to host the project
-# ALLOWED_HOSTS = ['learning-log.herokuapp.com']
-DEBUG = True
+ALLOWED_HOSTS = ['learning-log.herokuapp.com']
 
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
