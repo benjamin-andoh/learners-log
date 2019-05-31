@@ -22,25 +22,23 @@
         <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         </button>
-        <a class="navbar-brand" href="{% url 'learning_logs:index' %}">
-        Learning Log</a>
+        <a class="navbar-brand" href="{% url 'learning_logs:index' %}">Learning Log</a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
-        </ul>
+
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
+            <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
             <li><a>Hello, {{ user.username }}.</a></li>
-            <li><a href="{% url 'users:logout' %}">log out</a></li>
+            <li><a href="{% url 'users:logout' %}">Log out</a></li>
           {% else %}
-            <li><a href="{% url 'users:register' %}">register</a></li>
-            <li><a href="{% url 'users:login' %}">log in</a></li>
+            <li><a href="{% url 'users:register' %}">Register</a></li>
+            <li><a href="{% url 'users:login' %}">Login</a></li>
           {% endif %}
         </ul>
     </div><!--/.nav-collapse -->
-|
+
   </div>
 </nav>
 
@@ -52,6 +50,36 @@
     {% block content %}{% endblock content %}
   </div>
 </div> <!-- /container -->
+
+<!--<div class="footer">-->
+<!--    <ul type="none" style="align: center,">-->
+<!--        <li>facebook</li>-->
+<!--        <li>Instagram</li>-->
+<!--        <li>LinkedIn</li>-->
+<!--    </ul>-->
+
+<!--</div>-->
+
+ <script>
+    let deleteButtons = document.querySelectorAll("button[name=delete]");
+
+    console.log(deleteButtons);
+
+    let deleteItem = (button) => {
+    return function(button){
+        button.preventDefault();
+        let href = button.target.getAttribute("href");
+        let confirmResponse = confirm("Do you really want to delete?");
+        if(confirmResponse)
+        window.location.href = href
+        }
+    };
+
+    for(i=0; i<deleteButtons.length;i++)
+    {
+        deleteButtons[i].addEventListener('click', deleteItem(this));
+    }
+</script>
 
 </body>
 </html>

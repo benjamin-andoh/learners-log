@@ -2,19 +2,19 @@
 
 {% block header %}
   <div class="jumbotron">
-      <h1>Your learning Progress can be tracked here</h1>
+      <h2>Your learning Progress can be tracked here</h2>
   </div>
 {% endblock header%}
 
 
 {% block content %}
-<h2>
-    <a href="{% url 'users:register' %}"> Register an Account </a>
+<h3>
+   <a href="{% url 'users:register' %}"> <i> Register an Account </i> </a>
     to make your own learning log, and list the topics you are learning about
-</h2>
-<h2>
-    The Learning log helps you to keep track of your learning, for any topic you are learning about.<br/><br/>
-    We hope this application will help you with your learning path.<br/>
+</h3>
+<h3>
+    click on topics to get started <br/><br/>
+    We hope you will the delight with your learning path.<br/>
     Happy learning
-</h2>
+</h3>
 {% endblock content %}

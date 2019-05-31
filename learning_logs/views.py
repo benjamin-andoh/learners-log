@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import  HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -18,6 +18,7 @@ def topics(request):
     """show all topics"""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
+
     return render(request, 'learning_logs/topics.html', context)
 
 
@@ -93,3 +94,23 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+def delete_topics(request, topic_id):
+    topics = Topic.objects.filter(id=topic_id).delete()
+    if request:
+        topics
+        return HttpResponseRedirect(reverse('learning_logs:topics'))
+
+    context = {'topics': topics}
+    return render(request, 'learning_logs/topics.html', context)
+
+
+def delete_entry(request, entry_id):
+    topic = Entry.objects.filter(id=entry_id).delete()
+    if request:
+        topic
+        return HttpResponseRedirect(reverse('learning_logs:topics'))
+
+    context = {'topic': topic}
+    return render(request, 'learning_logs/topic.html', context)

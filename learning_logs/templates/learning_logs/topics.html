@@ -5,20 +5,28 @@
 {% endblock header %}
 
 {% block content %}
+<div class="panel panel-default">
+    <ul class="panel-body">
+        {% for topic in topics %}
+          <li type="none">
+              <h4>
+                  <a href="{% url 'learning_logs:topic' topic.id %}"> {{ topic }} </a><br>
+              </h4>
+              <button name="delete">
+                  <a href="{% url 'learning_logs:delete_topics' topic.id  %}"> Delete topic </a>
+              </button>
+              <hr>
+          </li>
 
-<P> These are the Topics in your Study box </P>
-<ul>
-    {% for topic in topics %}
-      <li>
-          <h3>
-              <a href="{% url 'learning_logs:topic' topic.id %}"> {{ topic }} </a>
-          </h3>
-      </li>
-    {% empty %}
-      <li> No Topics have Been Added Yet. </li>
-    {% endfor %}
-</ul>
 
-<h3><a href="{% url 'learning_logs:new_topic' %}">Add a new topic: </a></h3>
+        {% empty %}
+          <li type="none"><i> No Topics have Been Added Yet. </i></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<button> <a href="{% url 'learning_logs:new_topic' %}">Add a new topic</a> </button>
+
+
 
 {% endblock content%}

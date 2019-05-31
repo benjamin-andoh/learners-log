@@ -4,6 +4,7 @@ from django.urls import path
 from . import views
 
 app_name = 'learning_logs'
+app_name1 = 'https'
 urlpatterns = [
     # Home page: URL with nothing between the beginning and end of the URL
     # url(r'^$', views.index, name='index'),
@@ -23,4 +24,11 @@ urlpatterns = [
 
     # Page for editing entry
     path(r'edit_entry/(?P<entry_id>\d+)/', views.edit_entry, name='edit_entry'),
+
+    # Button for deleting a topic in the topics page
+    path(r'delete_topics/(?P<topic_id>\d+)/', views.delete_topics, name='delete_topics'),
+
+    # Button for deleting an entry
+    path(r'delete_entry/(?P<entry_id>\d+)/', views.delete_entry, name='delete_entry'),
+
 ]

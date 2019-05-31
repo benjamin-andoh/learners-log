@@ -2,12 +2,16 @@
 
 {% block content %}
 
+<div class="panel panel-default">
   <form method="post" action="{% url 'users:register' %}">
       {% csrf_token %}
       {{ form.as_p }}
 
-      <button name="sumit"> register </button>
+      <div>
+          <button name="submit"> register </button>
+      </div>
+
       <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
   </form>
-
+</div>
 {% endblock content %}
