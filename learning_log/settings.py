@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -24,12 +23,11 @@ SECRET_KEY = 'ad^1r4hc%a7f!nbr=v0)sn$vsvqcab!_v)wn2%jym22u!1qkse'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # allow only Heroku to host the project
-ALLOWED_HOSTS = ['learning-log.herokuapp.com']
+# ALLOWED_HOSTS = ['learning-log.herokuapp.com']
 
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -43,6 +41,7 @@ INSTALLED_APPS = [
 
     # third party apps
     'bootstrap3',
+    'crispy_forms',
 
     # my apps
     'learning_logs',
@@ -79,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learning_log.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -89,7 +87,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -109,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -123,21 +119,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
-
 # My settings
 LOGIN_URL = '/users:login/'
-
 
 # Settings for django-bootstrap3
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Heroku settings
 if os.getcwd() == '/app':

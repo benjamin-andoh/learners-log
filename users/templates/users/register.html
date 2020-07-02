@@ -1,13 +1,17 @@
 {% extends "learning_logs/base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
-<div class="panel panel-default">
+
+<div class="content-section">
   <form method="post" action="{% url 'users:register' %}">
       {% csrf_token %}
-      {{ form.as_p }}
-
-      <div>
+      <fieldset class="form-group">
+          <legend class="border-bottom mb-4"> JOIN TODAY </legend>
+      {{ form|crispy }}
+      </fieldset>
+      <div class="form-group">
           <button name="submit"> register </button>
       </div>
 

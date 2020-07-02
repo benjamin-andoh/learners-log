@@ -14,21 +14,21 @@ urlpatterns = [
     path('topics/', views.topics, name='topics'),
 
     # Detail page for a single topic
-    path(r'topics/(?P<topic_id>\d+)/', views.topic, name='topic'),
+    path('topics/topic_id/', views.topic, name='topic'),
 
     # page for adding new topic
     path('new_topic/', views.new_topic, name='new_topic'),
 
     # page for adding a new entry
-    path(r'new_entry/(?P<topic_id>\d+)/', views.new_entry, name='new_entry'),
+    path('new_entry/topic_id/', views.new_entry, name='new_entry'),
 
     # Page for editing entry
-    path(r'edit_entry/(?P<entry_id>\d+)/', views.edit_entry, name='edit_entry'),
+    path('edit_entry/entry_id/', views.edit_entry, name='edit_entry'),
 
     # Button for deleting a topic in the topics page
-    path(r'delete_topics/(?P<topic_id>\d+)/', views.delete_topics, name='delete_topics'),
+    path('delete_topics/topic_id/', views.delete_topics, name='delete_topics'),
 
     # Button for deleting an entry
-    path(r'delete_entry/(?P<entry_id>\d+)/', views.delete_entry, name='delete_entry'),
+    path('delete_entry/entry_id/', views.delete_entry, name='delete_entry'),
 
 ]
